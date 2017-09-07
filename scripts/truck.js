@@ -3,8 +3,9 @@
   
   var App = window.App || {};
   
-  function Truck() {
-      
+  function Truck(truckId, db) {
+      this.truckId = truckId;
+      this.db = db;
   };
   
   App.Truck = Truck;
