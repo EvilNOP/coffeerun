@@ -10,7 +10,7 @@
   var myTruck = new Truck('ncc-1701', new DataStore());
   var formHandler = new FormHandler(FORM_SELECTOR);
   
-  formHandler.addSubmitHandler();
+  formHandler.addSubmitHandler(myTruck.createOrder.bind(myTruck));
   console.log(formHandler);
   
   window.myTruck = myTruck;
