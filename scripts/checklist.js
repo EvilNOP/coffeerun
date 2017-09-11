@@ -12,7 +12,7 @@
     this.$element = $(selector);
     
     if (this.$element.length == 0) {
-      throw ne Error('Could not find element with selector: ' + selector);
+      throw new Error('Could not find element with selector: ' + selector);
     }
   }
   
