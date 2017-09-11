@@ -16,6 +16,15 @@
     }
   }
   
+  CheckList.prototype.addClickHandler = function (fn) {
+    this.$element.on('click', function (event) {
+      var email = event.target.value;
+      console.log(email);
+      this.removeRow(email);
+      fn(email);
+    }.bind(this));
+  };
+  
   CheckList.prototype.addRow = function (coffeeOrder) {
     // Remove any existing rows that match the email address
     this.removeRow(coffeeOrder.emailAddress);
