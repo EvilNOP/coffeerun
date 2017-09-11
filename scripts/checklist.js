@@ -16,6 +16,14 @@
     }
   }
   
+  CheckList.prototype.addRow = function (coffeeOrder) {
+    // Create a new instance of a row, using the coffee order info
+    var row = new Row(coffeeOrder);
+    
+    // Add the new row instance's $element property to the checklist
+    this.$element.append(row.$element);
+  }
+  
   function Row(coffeeOrder) {
     var $div = $('<div></div>', {
       'data-coffee-order': 'checkbox',
