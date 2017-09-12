@@ -14,6 +14,8 @@
   var checklist = new CheckList(CHECKLIST_SELECTOR);
   var formHandler = new FormHandler(FORM_SELECTOR);
   
+  checklist.addClickHandler(myTruck.deliverOrder.bind(myTruck));
+  
   formHandler.addSubmitHandler(function (data) {
     myTruck.createOrder.call(myTruck, data);
     checklist.addRow.call(checklist, data);
