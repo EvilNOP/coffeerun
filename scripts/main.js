@@ -22,8 +22,10 @@
   checklist.addClickHandler(myTruck.deliverOrder.bind(myTruck));
   
   formHandler.addSubmitHandler(function (data) {
-    myTruck.createOrder.call(myTruck, data);
-    checklist.addRow.call(checklist, data);
+    myTruck.createOrder.call(myTruck, data)
+      .then(function () {
+        checklist.addRow.call(checklist, data);
+      });
   });
   
   formHandler.addInputHandler(Validation.isCompanyEmail);
