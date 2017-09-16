@@ -22,13 +22,15 @@
   checklist.addClickHandler(myTruck.deliverOrder.bind(myTruck));
   
   formHandler.addSubmitHandler(function (data) {
-    myTruck.createOrder.call(myTruck, data)
+    return myTruck.createOrder.call(myTruck, data)
       .then(function () {
         checklist.addRow.call(checklist, data);
       });
   });
   
   formHandler.addInputHandler(Validation.isCompanyEmail);
+  
+  myTruck.printOrders(checklist.addRow.bind(checklist));
   
   window.myTruck = myTruck;
 }(window));
