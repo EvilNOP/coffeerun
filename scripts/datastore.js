@@ -2,26 +2,31 @@
   'use strict';
   
   var App = window.App || {};
-  var data = {};
+  var Promise = window.Promise;
   
   function DataStore() {
     // Initialization code goes here
+    this.data = {};
   }
   
   DataStore.prototype.add = function (key, val) {
-    data[key] = val;
+    var promise = new Promise(function (resolve, reject) {
+      this.data[key] = val;
+    }.bind(this));
+    
+    return promise;
   };
   
   DataStore.prototype.get = function (key) {
-    return data[key];
+    return this.data[key];
   };
   
   DataStore.prototype.getAll = function () {
-    return data;
+    return this.data;
   };
   
   DataStore.prototype.remove = function (key) {
-    delete data[key];
+    delete this.data[key];
   };
   
   App.DataStore = DataStore;
