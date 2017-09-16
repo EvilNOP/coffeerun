@@ -15,7 +15,7 @@
   var CheckList = App.CheckList;
   
   var remoteDS = new RemoteDataStore(SERVER_URL);
-  var myTruck = new Truck('ncc-1701', remoteDS);
+  var myTruck = new Truck('ncc-1701', new DataStore());
   var checklist = new CheckList(CHECKLIST_SELECTOR);
   var formHandler = new FormHandler(FORM_SELECTOR);
   
